@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - The MovieDelivery</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="description" content="A sua locadora online" />
+        <meta name="keywords" content="movie, delivery, films, location" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        
+    </head>
+    <body>
+        <div id="header">
+            <div id="header-content">
+                <div id="logo">
+                    @Html.ActionLink("Inicio", "Index", "Home")
+                </div>
+                <div id="login">
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div id="menu-content">
+                <ul>
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Filmes+", "Listar", "Filmes")</li>
+                    <li>@Html.ActionLink("Sobre", "Sobre", "Home")</li>
+                    <li>@Html.ActionLink("Contato", "Contato", "Home")</li>
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            <div id="content-content">
+                @RenderSection("featured", required: false)
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="footer-content">
+                <p>&copy;@DateTime.Now.Year - The MovieDelivery.com</p>
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>
